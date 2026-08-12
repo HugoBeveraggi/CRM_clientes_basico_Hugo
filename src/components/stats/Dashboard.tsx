@@ -81,10 +81,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ clients }) => {
             <TrendingUp size={24} />
           </div>
           <div>
-            <p className="text-sm text-[var(--color-text-dim)] font-medium">Tasa de Éxito</p>
+            <p className="text-sm text-[var(--color-text-dim)] font-medium">{t('dashboard.successRate')}</p>
             <h3 className="text-2xl font-bold text-[var(--color-text)] mt-1">{metrics.winRate}%</h3>
             <p className="text-xs text-[var(--color-text-muted)] mt-1">
-              {metrics.won} ganados / {metrics.lost} perdidos
+              {t('dashboard.wonVsLost', { won: metrics.won, lost: metrics.lost })}
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ clients }) => {
             <Trophy size={24} />
           </div>
           <div className="min-w-0 w-full">
-            <p className="text-sm text-[var(--color-text-dim)] font-medium mb-1">Mejores Clientes</p>
+            <p className="text-sm text-[var(--color-text-dim)] font-medium mb-1">{t('dashboard.topClients')}</p>
             <select 
               className="
                 w-full bg-[var(--color-bg)] text-[var(--color-text)] font-semibold text-sm
@@ -110,7 +110,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ clients }) => {
                   </option>
                 ))
               ) : (
-                <option value="">Ningún cliente ganado</option>
+                <option value="">{t('dashboard.noWonClients')}</option>
               )}
             </select>
           </div>
@@ -121,10 +121,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ clients }) => {
             <AlertCircle size={24} />
           </div>
           <div>
-            <p className="text-sm text-[var(--color-text-dim)] font-medium">Total Clientes</p>
+            <p className="text-sm text-[var(--color-text-dim)] font-medium">{t('dashboard.totalClients')}</p>
             <h3 className="text-2xl font-bold text-[var(--color-text)] mt-1">{clients.length}</h3>
             <p className="text-xs text-[var(--color-text-muted)] mt-1">
-              En todas las etapas
+              {t('dashboard.allStages')}
             </p>
           </div>
         </div>
@@ -135,7 +135,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ clients }) => {
         
         {/* Bar Chart: Revenue by Status */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-5 h-[360px] flex flex-col">
-          <h3 className="text-sm font-semibold text-[var(--color-text)] mb-6">Ingresos Esperados por Etapa</h3>
+          <h3 className="text-sm font-semibold text-[var(--color-text)] mb-6">{t('dashboard.expectedRevenueByStage')}</h3>
           <div className="flex-1 min-h-0 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={metrics.statusData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
@@ -168,7 +168,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ clients }) => {
 
         {/* Pie Chart: Clients by Status */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-5 h-[360px] flex flex-col">
-          <h3 className="text-sm font-semibold text-[var(--color-text)] mb-2">Distribución de Clientes</h3>
+          <h3 className="text-sm font-semibold text-[var(--color-text)] mb-2">{t('dashboard.clientDistribution')}</h3>
           <div className="flex-1 min-h-0 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>

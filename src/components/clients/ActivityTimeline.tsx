@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Phone, 
   Mail, 
@@ -37,6 +38,7 @@ const ACTIVITY_COLORS: Record<ActivityType, string> = {
 };
 
 export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({ activities, onChange }) => {
+  const { t } = useTranslation();
   const [newType, setNewType] = useState<ActivityType>('note');
   const [newContent, setNewContent] = useState('');
   const [newDate, setNewDate] = useState('');
@@ -95,14 +97,14 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({ activities, 
               `}
             >
               {ACTIVITY_ICONS[type]}
-              <span className="capitalize">{type}</span>
+              <span className="capitalize">{t(`timeline.types.${type}`)}</span>
             </button>
           ))}
         </div>
 
         <div className="flex flex-col gap-2">
           <textarea
-            placeholder={`Añadir nuevo ${newType}...`}
+            placeholder={t('timeline.addPlaceholder', { type: t(`timeline.types.${newType}`) })}
             value={newContent}
             onChange={(e) => setNewContent(e.target.value)}
             rows={2}
@@ -129,7 +131,7 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({ activities, 
               disabled={!newContent.trim() || (newType === 'reminder' && !newDate)}
               icon={<Plus size={14} />}
             >
-              Añadir
+              {t('timeline.add')}
             </Button>
           </div>
         </div>
@@ -139,7 +141,7 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({ activities, 
       <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
         {sortedActivities.length === 0 ? (
           <p className="text-center text-sm text-[var(--color-text-muted)] py-4">
-            No hay actividades registradas.
+            {t('timeline.empty')}
           </p>
         ) : (
           sortedActivities.map((act) => {
@@ -167,14 +169,14 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({ activities, 
                   </div>
                   <div className="flex justify-between items-center mt-2">
                     <span className={`text-xs ${isOverdue ? 'text-red-500 font-bold' : 'text-[var(--color-text-muted)]'}`}>
-                      {new Date(act.date).toLocaleDateString()} {isOverdue && ' (Atrasado)'}
+                      {new Date(act.date).toLocaleDateString()} {isOverdue && ` ${t('timeline.overdue')}`}
                     </span>
                     <button
                       type="button"
                       onClick={() => deleteActivity(act.id)}
                       className="text-xs text-red-500 opacity-0 group-hover:opacity-100 transition-opacity hover:underline flex items-center gap-1"
                     >
-                      <Trash2 size={12} /> Eliminar
+                      <Trash2 size={12} /> {t('timeline.delete')}
                     </button>
                   </div>
                 </div>

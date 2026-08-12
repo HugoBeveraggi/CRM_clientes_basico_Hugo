@@ -104,7 +104,7 @@ export const KanbanCard: React.FC<KanbanCardProps> = ({
             rounded transition-colors duration-[var(--transition-fast)]
             opacity-0 group-hover:opacity-100
           "
-          aria-label="Arrastrar tarjeta"
+          aria-label={t('client.card.dragCard')}
         >
           <GripVertical size={14} />
         </button>
@@ -157,7 +157,7 @@ export const KanbanCard: React.FC<KanbanCardProps> = ({
             "
           >
             {expanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-            Historial ({activities.length})
+            {t('client.card.history', { count: activities.length })}
           </button>
           {expanded && (
             <div className="mt-1 space-y-1.5 bg-[var(--color-surface)] rounded-[var(--radius-sm)] px-2 py-1.5 animate-fade-in">
@@ -197,14 +197,14 @@ export const KanbanCard: React.FC<KanbanCardProps> = ({
         {/* Actions */}
         <div className="flex items-center gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-[var(--transition-fast)]">
           {onMove && (
-            <div className="relative" title={t('client.card.move', 'Mover')}>
+            <div className="relative" title={t('client.card.move')}>
               <button
                 className="
                   p-1.5 rounded-[var(--radius-sm)] cursor-pointer
                   text-[var(--color-text-dim)] hover:text-[var(--color-accent)]
                   hover:bg-[var(--color-surface)] transition-all
                 "
-                aria-label="Mover"
+                aria-label={t('client.card.move')}
               >
                 <ArrowRightLeft size={12} />
               </button>

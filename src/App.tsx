@@ -90,7 +90,7 @@ const App: React.FC = () => {
       {/* Main content area */}
       <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-6 space-y-6">
         {/* KPI statistics */}
-        <section aria-label="Estadísticas del pipeline">
+        <section aria-label={t('app.statsSection')}>
           <StatsBar stats={stats} />
         </section>
 
@@ -121,7 +121,7 @@ const App: React.FC = () => {
                 `}
               >
                 <LayoutGrid size={16} />
-                <span className="hidden sm:inline">Tablero</span>
+                <span className="hidden sm:inline">{t('app.views.kanban')}</span>
               </button>
               <button
                 onClick={() => setActiveView('dashboard')}
@@ -134,7 +134,7 @@ const App: React.FC = () => {
                 `}
               >
                 <BarChart2 size={16} />
-                <span className="hidden sm:inline">Estadísticas</span>
+                <span className="hidden sm:inline">{t('app.views.dashboard')}</span>
               </button>
             </div>
 
@@ -149,7 +149,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Main Content (Kanban or Dashboard) */}
-        <section aria-label="Contenido Principal">
+        <section aria-label={t('app.mainContent')}>
           {activeView === 'kanban' ? (
             <KanbanBoard
               clientsByStatus={clientsByStatus}

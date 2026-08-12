@@ -79,7 +79,7 @@ export const KanbanColumn: React.FC<KanbanColumnProps> = ({
         {clients.length > 0 && (
           <div className="flex items-center justify-between">
             <span className="text-xs text-[var(--color-text-dim)]">
-              {config.description}
+              {t(`kanban.descriptions.${config.id}`)}
             </span>
             <span
               className="text-xs font-semibold tabular-nums"

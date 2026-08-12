@@ -236,7 +236,7 @@ export const ClientModal: React.FC<ClientModalProps> = ({
         {/* Activities Timeline */}
         <div className="flex flex-col gap-1 border-t border-[var(--color-border)] pt-4 mt-2">
           <label className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wider mb-2">
-            Historial y Recordatorios
+            {t('client.modal.labels.historyAndReminders')}
           </label>
           <ActivityTimeline 
             activities={form.activities || []} 

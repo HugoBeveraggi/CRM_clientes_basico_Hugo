@@ -14,7 +14,13 @@ const resources = {
         "showingClients": "Mostrando {{filtered}} de {{total}} clientes",
         "addShortcut": "en cada columna para añadir",
         "footerStorage": "CRMPro · Datos almacenados localmente en tu navegador",
-        "footerDeveloped": "{{year}} · Desarrollado con ❤️"
+        "footerDeveloped": "{{year}} · Desarrollado con ❤️",
+        "views": {
+          "kanban": "Tablero",
+          "dashboard": "Estadísticas"
+        },
+        "statsSection": "Estadísticas del pipeline",
+        "mainContent": "Contenido Principal"
       },
       "header": {
         "searchPlaceholder": "Buscar clientes, empresas, emails...",
@@ -48,7 +54,23 @@ const resources = {
         "totalClients": "Total Clientes",
         "potentialRevenue": "Ingresos Potenciales",
         "won": "Ganados",
-        "lost": "Perdidos"
+        "lost": "Perdidos",
+        "activeClients": "{{count}} activos",
+        "activeClientsSub": "clientes activos",
+        "conversionSub": "{{rate}}% conversión",
+        "lostSub": "cerrados sin éxito",
+        "conversionRate": "Tasa de Conversión",
+        "wonVsClosed": "ganados / cerrados"
+      },
+      "dashboard": {
+        "successRate": "Tasa de Éxito",
+        "wonVsLost": "{{won}} ganados / {{lost}} perdidos",
+        "topClients": "Mejores Clientes",
+        "noWonClients": "Ningún cliente ganado",
+        "totalClients": "Total Clientes",
+        "allStages": "En todas las etapas",
+        "expectedRevenueByStage": "Ingresos Esperados por Etapa",
+        "clientDistribution": "Distribución de Clientes"
       },
       "kanban": {
         "columns": {
@@ -58,7 +80,28 @@ const resources = {
           "won": "Ganados",
           "lost": "Perdidos"
         },
+        "descriptions": {
+          "new": "Clientes recién añadidos",
+          "contacted": "En conversación inicial",
+          "proposal": "Propuesta formal enviada",
+          "won": "Cliente convertido",
+          "lost": "Oportunidad cerrada"
+        },
         "emptyColumn": "Mueve clientes aquí"
+      },
+      "timeline": {
+        "types": {
+          "note": "nota",
+          "call": "llamada",
+          "email": "email",
+          "meeting": "reunión",
+          "reminder": "recordatorio"
+        },
+        "addPlaceholder": "Añadir {{type}}...",
+        "add": "Añadir",
+        "empty": "No hay actividades registradas.",
+        "overdue": "(Atrasado)",
+        "delete": "Eliminar"
       },
       "client": {
         "modal": {
@@ -76,7 +119,8 @@ const resources = {
             "email": "Email",
             "amount": "Importe esperado (€)",
             "status": "Estado",
-            "notes": "Notas"
+            "notes": "Notas",
+            "historyAndReminders": "Historial y Recordatorios"
           },
           "placeholders": {
             "name": "Ej: Juan García",
@@ -93,7 +137,10 @@ const resources = {
         },
         "card": {
           "edit": "Editar",
-          "delete": "Eliminar"
+          "delete": "Eliminar",
+          "dragCard": "Arrastrar tarjeta",
+          "history": "Historial ({{count}})",
+          "move": "Mover"
         }
       }
     }
@@ -110,7 +157,13 @@ const resources = {
         "showingClients": "Showing {{filtered}} of {{total}} clients",
         "addShortcut": "in each column to add",
         "footerStorage": "CRMPro · Data stored locally in your browser",
-        "footerDeveloped": "{{year}} · Developed with ❤️"
+        "footerDeveloped": "{{year}} · Developed with ❤️",
+        "views": {
+          "kanban": "Board",
+          "dashboard": "Analytics"
+        },
+        "statsSection": "Pipeline Statistics",
+        "mainContent": "Main Content"
       },
       "header": {
         "searchPlaceholder": "Search clients, companies, emails...",
@@ -144,7 +197,23 @@ const resources = {
         "totalClients": "Total Clients",
         "potentialRevenue": "Potential Revenue",
         "won": "Won",
-        "lost": "Lost"
+        "lost": "Lost",
+        "activeClients": "{{count}} active",
+        "activeClientsSub": "active clients",
+        "conversionSub": "{{rate}}% conversion",
+        "lostSub": "unsuccessfully closed",
+        "conversionRate": "Conversion Rate",
+        "wonVsClosed": "won / closed"
+      },
+      "dashboard": {
+        "successRate": "Success Rate",
+        "wonVsLost": "{{won}} won / {{lost}} lost",
+        "topClients": "Top Clients",
+        "noWonClients": "No won clients",
+        "totalClients": "Total Clients",
+        "allStages": "Across all stages",
+        "expectedRevenueByStage": "Expected Revenue by Stage",
+        "clientDistribution": "Client Distribution"
       },
       "kanban": {
         "columns": {
@@ -154,7 +223,28 @@ const resources = {
           "won": "Won",
           "lost": "Lost"
         },
+        "descriptions": {
+          "new": "Newly added clients",
+          "contacted": "In initial conversation",
+          "proposal": "Formal proposal sent",
+          "won": "Client converted",
+          "lost": "Opportunity closed"
+        },
         "emptyColumn": "Move clients here"
+      },
+      "timeline": {
+        "types": {
+          "note": "note",
+          "call": "call",
+          "email": "email",
+          "meeting": "meeting",
+          "reminder": "reminder"
+        },
+        "addPlaceholder": "Add {{type}}...",
+        "add": "Add",
+        "empty": "No activities recorded.",
+        "overdue": "(Overdue)",
+        "delete": "Delete"
       },
       "client": {
         "modal": {
@@ -172,7 +262,8 @@ const resources = {
             "email": "Email",
             "amount": "Expected amount (€)",
             "status": "Status",
-            "notes": "Notes"
+            "notes": "Notes",
+            "historyAndReminders": "History & Reminders"
           },
           "placeholders": {
             "name": "Ex: John Doe",
@@ -189,7 +280,10 @@ const resources = {
         },
         "card": {
           "edit": "Edit",
-          "delete": "Delete"
+          "delete": "Delete",
+          "dragCard": "Drag card",
+          "history": "History ({{count}})",
+          "move": "Move"
         }
       }
     }

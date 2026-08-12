@@ -97,7 +97,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({ stats }) => {
         icon={<Users size={20} />}
         label={t('stats.totalClients')}
         value={stats.totalClients}
-        subValue={`${stats.activeClients} activos`}
+        subValue={t('stats.activeClients', { count: stats.activeClients })}
         accentColor="#6c63ff"
         trend="neutral"
       />
@@ -105,7 +105,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({ stats }) => {
         icon={<TrendingUp size={20} />}
         label={t('stats.potentialRevenue')}
         value={formatCurrencyCompact(stats.totalPotentialRevenue)}
-        subValue="clientes activos"
+        subValue={t('stats.activeClientsSub')}
         accentColor="#63b3ed"
         trend="up"
       />
@@ -113,7 +113,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({ stats }) => {
         icon={<Trophy size={20} />}
         label={t('stats.won')}
         value={stats.wonClients}
-        subValue={`${stats.conversionRate}% conversión`}
+        subValue={t('stats.conversionSub', { rate: stats.conversionRate })}
         accentColor="#48bb78"
         trend="up"
       />
@@ -121,15 +121,15 @@ export const StatsBar: React.FC<StatsBarProps> = ({ stats }) => {
         icon={<HeartCrack size={20} />}
         label={t('stats.lost')}
         value={stats.lostClients}
-        subValue="cerrados sin éxito"
+        subValue={t('stats.lostSub')}
         accentColor="#fc8181"
         trend={stats.lostClients > stats.wonClients ? 'down' : 'neutral'}
       />
       <StatCard
         icon={<Activity size={20} />}
-        label="Tasa de Conversión"
+        label={t('stats.conversionRate')}
         value={`${stats.conversionRate}%`}
-        subValue="ganados / cerrados"
+        subValue={t('stats.wonVsClosed')}
         accentColor="#f6ad55"
         trend={stats.conversionRate >= 50 ? 'up' : 'down'}
       />
